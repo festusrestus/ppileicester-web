@@ -57,7 +57,7 @@ h1 {
 }
 
 p {
-    font-size: 20px;
+    font-size: 14px;
     font-family: monospace;
     position: relative;
     transition: color .15s;
@@ -83,4 +83,5 @@ p:hover::after {
     content: "Stay tuned!";   /* new text shown on hover */
 
 }
+
 
