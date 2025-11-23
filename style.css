@@ -1,0 +1,86 @@
+/* Import necessary font */
+@font-face {
+    font-family: 'ByteBounce';
+    src: url(fonts/ByteBounce.ttf);
+}
+
+body {
+    background-image: url(image/Leicester.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: scroll;
+    display: flex;                          /* enable flexbox */
+    flex-direction: column;                 /* stacks h1 and p vertically */
+    justify-content: center;                /* center vertically */
+    align-items: center;                    /* center horizontally */
+    height: 100vh;                          /* full viewport height */
+    margin: 0;                              /* removes default margin */
+}
+
+.logo {
+    width: clamp(64px, 20vw, 160px); /* EDIT THIS LINE: min 64px, preferred 20vw, max 160px */
+    height: auto;                    /* keep aspect ratio */
+    display: block;                  /* ensures margin auto/centering behavior */
+    margin-bottom: 1rem;             /* space between image and heading; EDIT THIS LINE if needed */
+    object-fit: contain;             /* preserves image within box */
+    border-radius: 50%;              /* make the image circle */
+    margin: 0;
+}
+
+h1, p {
+    margin: 0;
+    color: white;   /* set the font color to white */
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(48px, 12vw, 144px);            /* set the font size, clamp for scallable fonts */
+    font-family: 'ByteBounce';                      /* set the font style */
+    animation: colorCycle 6s infinite alternate;    /* set animation */
+}
+
+/* Animation to colorCycle and make h1 glows */
+@keyframes colorCycle {
+    0% {
+        color: white;
+        text-shadow: 0 0 2px white, 0 0 4px white;
+    }
+    50% {
+        color: rgb(255, 64, 0);
+        text-shadow: 0 0 2px rgb(255, 64, 0), 0 0 4px rgb(255, 64, 0);
+    }
+    100% {
+        color: white;
+        text-shadow: 0 0 2px white, 0 0 4px white;
+    }
+}
+
+p {
+    font-size: 20px;
+    font-family: monospace;
+    position: relative;
+    transition: color .15s;
+}
+
+p::after {
+    color: white;
+    position: absolute;
+    left: 50%;                      /* center start point */
+    top: 0;                         /* match width so it centers */
+    transform: translateX(-50%);    /* shift pseudo-element back by half its width */
+    width: 100%;                        
+    text-align: center;
+    pointer-events: none;
+}
+
+p:hover {
+    color: transparent;        /* keep original hidden on hover */
+}
+
+p:hover::after {
+    font-weight: bolder;
+    content: "Stay tuned!";   /* new text shown on hover */
+
+}
+
